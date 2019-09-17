@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    % include('template/base/head.html')
+</head>
+
+<body>
+
+<header>
+    % include('template/base/header.html')
+</header>
+
+<div class="banner-0">
+    <h1 class="text-center pb-2">
+        À propos
+    </h1>
+
+    <div class="container grid-lg">
+        <div class="columns">
+            <div class="column col-lg-12 col-4">
+                <img src="/static/img/the_dark_knight.jpg" class="img-fit-cover img-responsive"
+                     alt="the dark knight" width="100%">
+            </div>
+
+            <div class="column">
+                <h2>Synopsis du site</h2>
+                <p>
+                    On regarde quoi est un site permettant de trouver des films à voir. Il vous aide grace à un système
+                    de suggestions personnalisées. L'idée m'est venu après une énième soirée de recherche de
+                    films.
+                </p>
+                <p>
+                    Ainsi, devant le peu de sites dévoués à cette tâche, le projet avait l'air interesant. En effet, de
+                    nombreux site vous propose des recommandation de film mais il s'agit pout beaucoup d'une simple
+                    liste trié en fonction de l'appréciation des spectateurs. Comme par exemples, les meilleurs films
+                    de 2018, ou les films à voir ...
+                </p>
+                <p>
+                    Face au nombre de films qui sortent chaque année et la multitude de films déjà sorties,
+                    il est devenu difficile d'en trouver un qui nous convient vraiment. Ainsi, on peux
+                    malheureusement passer à coté d'un chefs d'oeuvre au profit d'un nanar. Dommage...
+                </p>
+            </div>
+        </div>
+
+
+        <h2>Un peu d'histoire</h2>
+        <p>
+            On Regarde Quoi est un projet personnel que j’ai débuté vers la mi-juin 2018 qui occupe principalement
+            mon temps libre.<br>
+            C’est un projet ambitieux qui me tiens à cœur. J’ai d’ores et déjà passé de
+            nombreuses heures à travailler dessus et malgré cela le projet est encore loin d’être fini.
+        </p>
+    </div>
+</div>
+
+
+<div class="banner-1">
+
+    <div class="container grid-lg">
+        <h2>La problematique</h2>
+        <p>
+            Je suis partie d’un constat simple : un algorithme de recommandation ne peut pas comprendre que l’on
+            puisse aimer deux types de films totalement différents. Pourtant, dans la réalité, on peut aimer à la
+            fois Star Wars et Intouchable. Ces deux films n’ont rien en commun et pourtant je les trouve
+            personnellement très bon.
+        </p>
+        <p>
+            Pour un système de recommandation, si on aime Star Wars alors il y a de grande chance pour que l’on aime
+            aussi Start Trek ou Valerian mais en aucun cas Intouchable. Mon projet tentera de résoudre cette
+            problématique.
+        </p>
+
+        <div class="columns">
+            <div class="column col-lg-12 col-2">
+                <img src="/static/img/cloud_atlas.jpg" class="img-fit-cover img-responsive"
+                     alt="cloud atlas" width="100%">
+            </div>
+
+            <div class="column">
+                <h2>Explication technique</h2>
+
+                <p>
+                    La particularité du système de suggestion réside dans le fait qu’il fonction en deux temps.<br>
+                    Tout d’abord, je regroupe les films en fonction de leurs genres et des mots clefs. Pour cela,
+                    j’utilise un algorithme de clustering. <br>
+                    Puis je trie les films pour chaque cluster en fonction de
+                    leurs similarités avec les films sélectionnés par l’ utilisateur.
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="banner-0">
+    <div class="container grid-lg">
+        <div class="columns">
+            <div class="column col-lg-12 col-10">
+                <h2>Pourquoi l'utiliser pour trouver un film</h2>
+
+                <p>
+                    Si vous en avez marre de voir toujours les même films a la télé ou de recherché les meilleurs
+                    films de l'univers sur google alors on regarde quoi va vous plaire.<br>Très simple d'utilisation
+                    et disposant d'une grande base de données, vous trouverez forcement votre bonheur.
+                </p>
+            </div>
+
+            <div class="column">
+                <img src="/static/img/gravity.jpg" class="img-fit-cover img-responsive"
+                     alt="gravity" width="100%">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    % include('template/base/footer.html')
+</footer>
+
+
+</body>
+</html>
