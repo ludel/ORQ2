@@ -1,0 +1,66 @@
+.banner-img {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.movie-page {
+    min-height: 1100px
+}
+
+.img-col {
+    margin-bottom: 50px;
+}
+
+.date {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.bar-vote {
+    margin-bottom: 30px;
+    border: 1px solid #405266;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+.rate-menu {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tab-category {
+    margin-bottom: 25px;
+}
+
+.tab-item {
+    font-size: 20px;
+}
+
+.tab-link:hover {
+    color: #F5B50A !important;
+    border-bottom: 2px solid #F5B50A !important;
+}
+
+.tab-item.active a {
+    color: #F5B50A !important;
+    border-bottom: 1px solid #F5B50A !important;
+}
+
+.category-menu {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 1.2%;
+}
+
+.overview-col {
+    margin-left: 20px;
+}
+
+.overview-col-item, .casting-line, .casting-video {
+    margin-bottom: 30px;
+}
+
+.label {
+    background-color: #06121e;
+    color: #abb7c4;
+}

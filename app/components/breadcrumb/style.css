@@ -1,0 +1,11 @@
+.breadcrumb {
+    font-size: 23px;
+    margin-top: 50px;
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child)::before {
+    color: #9d9d9d;
+    font-weight: bold;
+    margin-left: 5px;
+    content: '>';
+}

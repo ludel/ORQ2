@@ -1,0 +1,64 @@
+body {
+    color: white;
+}
+
+h3 {
+    border-bottom: 1px #405266 solid;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+h4 {
+    border-bottom: 1px #405266 solid;
+    margin-bottom: 10px;
+    padding-bottom: 3px;
+}
+
+h5 {
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px #405266 solid;
+}
+hr{
+    color: #405266;
+    margin-bottom: 20px;
+}
+
+.vertical-align {
+    margin: auto;
+    padding: auto;
+}
+
+.text-no-decoration:hover, .text-no-decoration:focus {
+    text-decoration: none;
+}
+
+.loading::after {
+    border-bottom-color: white;
+    border-left-color: white;
+}
+
+.banner-0 {
+    background-color: #020D18;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.banner-1 {
+    background-color: #06121e;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.icon-star {
+    color: #F5B50A;
+}
+
+.vertical-line {
+    border-left: 1px solid #405266;
+    height: 100%;
+}
+
+.modal.modal-lg .modal-overlay, .modal.modal-lg .modal-container{
+    background-color: #020D18;
+}

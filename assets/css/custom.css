@@ -1,13 +1,5 @@
-header {
-    background-image: url("/static/img/header-bg.jpg");
-}
-
 body {
     color: white;
-}
-
-footer {
-    background-image: url("/static/img/header-bg.jpg");
 }
 
 .vertical-align {
@@ -54,7 +46,7 @@ footer {
 }
 
 .banner-0 {
-    background-color: rgb(2, 13, 24);
+    background-color: #020D18;
     padding-top: 70px;
     padding-bottom: 70px;
 }
@@ -63,9 +55,6 @@ footer {
     background-color: #06121e;
     padding-top: 70px;
     padding-bottom: 70px;
-}
-
-.text-img {
 }
 
 .mr-3 {

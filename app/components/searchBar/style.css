@@ -1,0 +1,26 @@
+
+
+.search-input {
+    background-color: #233a50;
+    border-color: #233a50;
+    color: white;
+    height: 45px;
+}
+
+.search-input:focus {
+    border-color: #336181;
+}
+
+.search-button {
+    background-color: #233a50;
+    border-color: #233a50;
+    color: white;
+    height: 45px;
+    width: 45px;
+}
+
+.search-button:hover, .search-button:focus {
+    background-color: #336181;
+    border-color: #336181;
+    color: white;
+}

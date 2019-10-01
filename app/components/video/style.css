@@ -1,0 +1,15 @@
+.video-container {
+    position: relative;
+    color: #dd003f;
+}
+
+.play-btn {
+    position: absolute;
+    top: calc(50% - 14px); /* 50% - 3/4 of icon height */
+    right: calc(50% - 16px);
+
+}
+
+.video-container:hover {
+    color: white;
+}

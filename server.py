@@ -7,12 +7,12 @@ DEBUG = os.environ.get('DEBUG', False)
 
 @get('/')
 def index():
-    return template('template/index.html')
+    return template('template/static/index.html')
 
 
 @get('/about')
 def about():
-    return template('template/about.html')
+    return template('template/static/about.html')
 
 
 @get('/app')
@@ -20,13 +20,12 @@ def app():
     return static_file('index.html', root='app')
 
 
-@get('/static/<path:path>')
+@get('/assets/<path:path>')
 def static(path):
-    return static_file(path, root='static')
+    return static_file(path, root='assets')
 
 
-if __name__ == '__main__':
-    if DEBUG:
-        run(host='localhost', port=8081, debug=True)
-    else:
-        app = default_app()
+if DEBUG:
+    run(host='localhost', port=8081, debug=True)
+else:
+    app = default_app()

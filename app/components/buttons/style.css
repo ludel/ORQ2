@@ -1,0 +1,32 @@
+.red-btn-rounded:hover, .red-btn:hover, .red-big-btn:hover {
+    color: white;
+    background-color: #b8003a;
+    border-width: 0;
+    text-decoration: none;
+}
+
+.red-btn-rounded {
+    background-color: #dd003f;
+    color: white;
+    padding: 11px 25px;
+    border-radius: 20px;
+}
+
+.red-btn, .red-btn:focus {
+    background-color: #dd003f;
+    border-width: 0;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 3px;
+    height: 33px;
+}
+
+.red-big-btn, .red-big-btn:focus {
+    background-color: #dd003f;
+    border-width: 0;
+    color: white !important;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-top: 15px;
+}

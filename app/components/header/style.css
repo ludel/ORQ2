@@ -1,0 +1,32 @@
+.header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.nav-title {
+    font-size: 17px;
+    color: #fff !important;
+    margin-right: 1.2rem;
+}
+
+.title-header{
+    font-size: 45px;
+    font-weight: bold;
+    padding-bottom: 50px;
+    padding-top: 70px;
+}
+
+.burger, .burger:focus{
+    background-color: #dd003f;
+    color: white;
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 80%;
+    border: none;
+    line-height: 0;
+}
+
+.search-bar-burger{
+    margin-top: 40px;
+    margin-bottom: 50px;
+}

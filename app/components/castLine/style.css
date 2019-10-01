@@ -1,0 +1,25 @@
+
+.cast {
+    padding-top: 15px;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+}
+
+.cast-item {
+    margin: auto;
+}
+
+.avatar img {
+    border-radius: 10%;
+}
+
+.avatar {
+    border-radius: 10%;
+    background:#dd003f;
+}
+
+.avatar-xl {
+    height: 60px;
+    width: 2.5rem!important;
+}

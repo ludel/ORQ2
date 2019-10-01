@@ -1,0 +1,31 @@
+.body-card {
+    margin-right: 50px;
+}
+
+.menu-col {
+    margin-left: 50px;
+}
+
+.selection-movie-toast {
+    background-color: inherit;
+    font-weight: bold;
+}
+
+.custom-input {
+    background-color: #233a50;
+    border-color: #233a50;
+    color: white;
+    height: 35px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.custom-input:focus {
+    border-color: #336181;
+}
+
+.input-label {
+    font-size: 18px;
+    color: #abb7c4;
+    font-weight: bold;
+}
