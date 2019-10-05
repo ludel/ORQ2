@@ -1,5 +1,6 @@
 body {
     color: white;
+    background-color: #020D18;
 }
 
 h3 {
@@ -19,7 +20,8 @@ h5 {
     padding-bottom: 5px;
     border-bottom: 1px #405266 solid;
 }
-hr{
+
+hr {
     color: #405266;
     margin-bottom: 20px;
 }
@@ -59,6 +61,6 @@ hr{
     height: 100%;
 }
 
-.modal.modal-lg .modal-overlay, .modal.modal-lg .modal-container{
+.modal.modal-lg .modal-overlay, .modal.modal-lg .modal-container {
     background-color: #020D18;
 }

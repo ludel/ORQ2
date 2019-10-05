@@ -3,24 +3,10 @@ import style from './style.css';
 
 import SmallButton from "../buttons/smallButton";
 import {config} from '../../config'
+import constants from "../../constants";
 import DateFormat from "../time/dateFormat";
 
 class MovieCard extends Component {
-    addToSelection() {
-        const selection = JSON.parse(localStorage.getItem('selection'));
-        const isSelected = Object.keys(selection).includes(this.props.id.toString());
-
-        if (this.props.is_clustered === 'true') {
-            if (isSelected)
-                return <SmallButton text={<span><i className="icon icon-cross"/> Supprimer de la selection</span>}
-                                    visibility=""/>;
-            else
-                return <SmallButton text={<span><i className="icon icon-check"/> Ajouter à la selection</span>}
-                                    visibility=""/>;
-        } else
-            return <SmallButton text="Indisponible" visibility="disabled"/>;
-    }
-
     render(props) {
         return (
             <div class="columns card-movie">
@@ -49,12 +35,9 @@ class MovieCard extends Component {
 
                     <p class="mb-2">
                         Date de sortie: <DateFormat value={props.release_date} separator="/"/><br/>
-                        Version Originale: {config.VO[props.original_language]}
+                        Version Originale: {constants.VO[props.original_language]}
                     </p>
-
-                    <div onClick={() => props['add-selection'](props.id, props.title)}>
-                        {this.addToSelection()}
-                    </div>
+                    {this.props.footerCard}
                 </div>
             </div>
         )

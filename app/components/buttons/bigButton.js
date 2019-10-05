@@ -6,7 +6,7 @@ class BigButton extends Component {
 
     render(props) {
         return (
-            <button class={`btn red-big-btn c-hand ${props.loading}`} type="submit">{props.text}</button>
+            <button class={`btn red-big-btn c-hand ${props.loading}`} onClick={props.onclick} type="submit">{props.text}</button>
         )
     }
 }

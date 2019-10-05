@@ -1,15 +1,19 @@
 import {h, Component} from 'preact';
-import requests from "../../../requests";
-import Image from "../../../components/image";
-import {a} from 'preact-router';
+
 import Overview from "./overview";
 import Casting from "./casting";
 import Media from "./media";
 import Review from "./review";
 
 class CategoryMenu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {category: "overview"}
+    }
+
+
     getActive(name) {
-        return name === this.props.category ? 'active' : ''
+        return name === this.state.category ? 'active' : ''
     }
 
     * getCredit(job, creditType) {
@@ -20,7 +24,7 @@ class CategoryMenu extends Component {
     }
 
     getCurrentCategory() {
-        switch (this.props.category) {
+        switch (this.state.category) {
             case 'overview':
                 return <Overview overview={this.props.movie.overview}
                                  release-date={this.props.movie.release_date}
@@ -50,17 +54,18 @@ class CategoryMenu extends Component {
             <div>
                 <ul class="tab tab-block tab-category">
                     <li class={`tab-item ${this.getActive('overview')}`}>
-                        <a href={`/movie/${props['movie-id']}/overview`} class="tab-link"><i
-                            class="fas fa-home"/></a>
+                        <a onClick={() => this.setState({category: 'overview'})} class="tab-link c-hand">
+                            <i class="fas fa-home"/>
+                        </a>
                     </li>
                     <li class={`tab-item ${this.getActive('casting')}`}>
-                        <a href={`/movie/${props['movie-id']}/casting`} class="tab-link">Casting</a>
+                        <a onClick={() => this.setState({category: 'casting'})} class="tab-link c-hand">Casting</a>
                     </li>
                     <li class={`tab-item ${this.getActive('reviews')}`}>
-                        <a href={`/movie/${props['movie-id']}/reviews`} class="tab-link">Critiques</a>
+                        <a onClick={() => this.setState({category: 'reviews'})} class="tab-link c-hand">Critiques</a>
                     </li>
                     <li class={`tab-item hide-sm ${this.getActive('media')}`}>
-                        <a href={`/movie/${props['movie-id']}/media`} class="tab-link">Media</a>
+                        <a onClick={() => this.setState({category: 'media'})} class="tab-link c-hand">Media</a>
                     </li>
                 </ul>
 

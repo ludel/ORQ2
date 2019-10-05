@@ -2,6 +2,16 @@ body {
     color: white;
 }
 
+header {
+    background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-lg.jpg");
+    background-size: contain;
+}
+
+footer {
+    background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-footer.jpg");
+    background-size: contain;
+}
+
 .vertical-align {
     margin: auto;
     padding: auto;
@@ -47,14 +57,14 @@ body {
 
 .banner-0 {
     background-color: #020D18;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 4%;
+    padding-bottom: 4%;
 }
 
 .banner-1 {
     background-color: #06121e;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 4%;
+    padding-bottom: 4%;
 }
 
 .mr-3 {

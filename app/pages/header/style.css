@@ -1,6 +1,6 @@
 .header {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .nav-title {
@@ -9,14 +9,14 @@
     margin-right: 1.2rem;
 }
 
-.title-header{
+.title-header {
     font-size: 45px;
     font-weight: bold;
     padding-bottom: 50px;
     padding-top: 70px;
 }
 
-.burger, .burger:focus{
+.burger, .burger:focus {
     background-color: #dd003f;
     color: white;
     padding-right: 15px;
@@ -26,7 +26,16 @@
     line-height: 0;
 }
 
-.search-bar-burger{
+.search-bar-burger {
     margin-top: 40px;
     margin-bottom: 50px;
+}
+
+.modal-body {
+    min-height: 100%;
+}
+
+.modal {
+    align-items: normal;
+    height: 100%;
 }

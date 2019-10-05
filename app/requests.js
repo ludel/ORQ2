@@ -21,11 +21,19 @@ export default {
         detail(id) {
             return axios.get(`${config.API_URL}movies/${id}`)
         },
+        recommendation(id, selectionMoviesIds) {
+            return axios.get(`${config.API_URL}movies/${id}/recommendation/${selectionMoviesIds.join(',')}`)
+        }
+    },
+    people: {
+        search(query, page) {
+            return axios.get(`${config.API_URL}peoples/search/${query}/${page}`)
+        },
     },
     scoring: {
         movie(query) {
             return axios.get(`https://apis.justwatch.com/content/titles/fr_FR/popular?body={"content_types":["movie"],"page":1,"page_size":1,"query":"${query}"}`)
         }
-    }
+    },
 
 }

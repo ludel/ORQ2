@@ -3,27 +3,16 @@ import {h, Component} from 'preact';
 import style from './style.css';
 import {config} from '../../config'
 
-import Breadcrumb from "../breadcrumb";
-import BigRoundButton from "../buttons/bigRoundButton";
-import Image from "../image";
-import SearchBar from "../searchBar";
+import Breadcrumb from "../../components/breadcrumb";
+import BigRoundButton from "../../components/buttons/bigRoundButton";
+import Image from "../../components/image";
+import SearchBar from "../../components/searchBar";
 
 
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {modal: ''}
-    }
-
-
-    getBackground() {
-        if (this.props['bg-type'] === 'img')
-            return {
-                backgroundImage: `url("${config.ASSETS_URL}img/header-bg.jpg")`,
-                backgroundSize: 'cover'
-            };
-        else
-            return {backgroundColor: '#020D18'}
+        this.state = {modal: ''};
     }
 
     openModal() {
@@ -36,7 +25,7 @@ class Header extends Component {
 
     render(props, state) {
         return (
-            <header class="header" style={this.getBackground()}>
+            <header class="header" style={this.props['bg-type']}>
                 <div class="navbar container grid-xl text-bold">
                     <section class="navbar-section">
                         <a href="/" class="navbar-brand">
@@ -58,7 +47,7 @@ class Header extends Component {
 
                     {/* computer */}
                     <section class="navbar-center hide-lg">
-                        <SearchBar width='21rem'/>
+                        <SearchBar width='21rem' limit={3}/>
                     </section>
 
                     <section class="navbar-section hide-lg">
@@ -84,19 +73,24 @@ class Header extends Component {
                         </div>
 
                         <div class="modal-body">
-
                             <a href="/" class="text-light">
                                 <h4>Accueil <i class="icon icon-arrow-right"/></h4>
                             </a>
                             <a href="/movies" onClick={() => this.closeModal()} class="text-light" aria-label="Close">
                                 <h4>Liste de films <i class="icon icon-arrow-right"/></h4>
                             </a>
+                            <a href="/recommendation" onClick={() => this.closeModal()} class="text-light"
+                               aria-label="Close">
+                                <h4>Recommandation <i class="icon icon-arrow-right"/></h4>
+                            </a>
 
                             <div class="search-bar-burger">
                                 <h3>Recherche</h3>
-                                <SearchBar width='100%'/>
+                                <SearchBar width='100%' limit={1}/>
                             </div>
+                        </div>
 
+                        <div class="modal-footer">
                             <div class="text-center" onClick={() => this.closeModal()}>
                                 <a href="#" class="nav-title">Connexion</a>
                                 <BigRoundButton text="Inscription" href="#"/>

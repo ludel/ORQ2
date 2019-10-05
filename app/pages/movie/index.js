@@ -2,9 +2,8 @@ import {h, Component} from 'preact';
 import requests from "../../requests";
 import style from './style.css';
 
+import constants from "../../constants";
 import BigButton from "../../components/buttons/bigButton";
-import BigRoundButton from "../../components/buttons/bigRoundButton";
-import SmallButton from "../../components/buttons/smallButton";
 
 import RateMenu from "./utils/scoreMenu";
 import CategoryMenu from "./utils/categoryMenu";
@@ -19,11 +18,22 @@ class Movie extends Component {
         this.props.setHeader(
             "Film",
             {'Liste de films': '/movies'},
-            'color'
+            constants.bgStyle.color
         );
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.matches.id !== prevProps.matches.id) {
+            this.setState({loading: true});
+            this.fetchMovie();
+        }
+    }
+
     componentDidMount() {
+        this.fetchMovie()
+    }
+
+    fetchMovie() {
         requests.movies.detail(this.props.matches.id).then(res => {
             const current_breadcrumb = {'Liste de films': '/movies'};
             current_breadcrumb[res.data.title] = '';
@@ -45,6 +55,16 @@ class Movie extends Component {
         })
     }
 
+    getTextBtnSelection(id) {
+        const selection = JSON.parse(localStorage.getItem('selection'));
+        const isSelected = Object.keys(selection).includes(id.toString());
+
+        if (isSelected)
+            return <span><i class="icon icon-cross"/> Supprimer de la selection</span>;
+        else
+            return <span><i class="icon icon-plus"/> Ajouter la selection</span>;
+    }
+
     render(props, state) {
         if (state.loading)
             return (
@@ -55,15 +75,17 @@ class Movie extends Component {
         else
             return (
                 <div class="banner-img" style={state.bgStyle}>
-                    <div class="container grid-xl movie-page" >
+                    <div class="container grid-xl movie-page">
                         <div class="columns">
                             <div class="column col-3 col-lg-12 img-col">
                                 <img src={`https://image.tmdb.org/t/p/w342/${state.detail.poster_path}`}
                                      alt={state.detail.title}
-                                     class="img-responsive p-centered" />
+                                     class="img-responsive p-centered"/>
 
                                 <BigButton text={<span><i class="icon icon-bookmark"/> Ajouter à la watchlist</span>}/>
-                                <BigButton text={<span><i class="icon icon-plus"/> Ajouter au favoris</span>}/>
+                                <BigButton
+                                    onclick={() => props['update-selection'](state.detail.id, state.detail.title)}
+                                    text={this.getTextBtnSelection(state.detail.id)}/>
                             </div>
                             <div class="column">
                                 <h1 class="text-bold">
@@ -78,8 +100,7 @@ class Movie extends Component {
                                 </div>
 
                                 <div class="category-menu">
-                                    <CategoryMenu category={props.matches.category || 'overview'}
-                                                  movie-id={state.detail.id}
+                                    <CategoryMenu movie-id={state.detail.id}
                                                   movie={state.detail}/>
                                 </div>
                             </div>

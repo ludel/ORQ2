@@ -1,0 +1,15 @@
+.dot-carousel {
+    color: white;
+    font-size: 25px;
+}
+
+.dot-carousel:hover {
+    color: #dd003f !important;
+}
+
+.dot-active {
+    color: #dd003f !important;
+}
+
+.page-carousel {
+}

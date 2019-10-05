@@ -8,34 +8,31 @@ import BigButton from "../../components/buttons/bigButton";
 import MovieCard from "../../components/movieCard";
 import BarFilter from "../../components/barFilter";
 import Menu from "../../components/menu";
+import SmallButton from "../../components/buttons/smallButton";
 
 class Movies extends Component {
     constructor(props) {
         super(props);
         this.filters = {
-            'popularity': 'Popularité',
             'top': 'Notes des spectateurs',
+            'popularity': 'Popularité',
             'now_playing': "À l'affiche",
             'upcoming': "Sortie à venir",
-
         };
+
         this.state = {
             page: 1,
-            moviesCard: [],
+            moviesValues: [],
             loadingClass: "",
             totalResults: 0,
-            selectedMovies: JSON.parse(localStorage.getItem('selection')) || {},
             search: ""
         };
-
-        this.addSelection = this.updateMovieSelection.bind(this);
-        this.searchChange = this.searchChange.bind(this);
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.matches.filter !== prevProps.matches.filter) {
             this.setState({
-                moviesCard: [],
+                moviesValues: [],
                 page: 1
             });
             this.addMoviesCard();
@@ -51,7 +48,7 @@ class Movies extends Component {
         const filter = this.props.matches.filter;
 
         if (!filter)
-            return requests.movies.popularity(this.state.page);
+            return requests.movies.top(this.state.page);
         else if (!Object.keys(requests.movies).includes(filter))
             return requests.movies.search(filter, this.state.page);
         else
@@ -61,23 +58,23 @@ class Movies extends Component {
     addMoviesCard() {
         this.setState({loadingClass: 'loading'});
         const filterRequest = this.getRequest();
+
         filterRequest.then(res => {
             for (const data of res.data.results) {
-                const currentState = this.state.moviesCard;
+                const currentMoviesValue = this.state.moviesValues;
 
                 this.setState({
-                    moviesCard: currentState.concat(
-                        <MovieCard id={data.id}
-                                   title={data.title}
-                                   release_date={data.release_date || ''}
-                                   vote_average={data.vote_average}
-                                   poster_path={data.poster_path}
-                                   overview={data.overview}
-                                   adult={data.adult}
-                                   original_language={data.original_language}
-                                   is_clustered={data.is_clustered}
-                                   add-selection={this.addSelection}/>
-                    ),
+                    moviesValues: currentMoviesValue.concat({
+                        id: data.id,
+                        title: data.title,
+                        release_date: data.release_date,
+                        vote_average: data.vote_average,
+                        poster_path: data.poster_path,
+                        adult: data.adult,
+                        overview: data.overview,
+                        original_language: data.original_language,
+                        is_clustered: data.is_clustered,
+                    }),
                     totalResults: res.data.total_results
                 })
             }
@@ -86,23 +83,19 @@ class Movies extends Component {
         });
     }
 
-    updateMovieSelection(id, title) {
-        const selection = this.state.selectedMovies;
-        if (Object.keys(selection).includes(id.toString()))
-            delete selection[id];
-        else
-            selection[id] = title;
-
-        this.setState({
-            selectedMovies: selection
-        });
-        localStorage.setItem('selection', JSON.stringify(selection))
-    }
-
-    searchChange(event) {
+    searchChange = (event) => {
         this.setState({search: event.target.value});
-    }
+    };
 
+    getTextBtnSelection(id) {
+        const selection = JSON.parse(localStorage.getItem('selection'));
+        const isSelected = Object.keys(selection).includes(id.toString());
+
+        if (isSelected)
+            return <span><i class="icon icon-cross"/> Supprimer de la selection</span>;
+        else
+            return <span><i class="icon icon-check"/> Ajouter à la selection</span>
+    }
 
     render(props, state) {
         return (
@@ -113,9 +106,26 @@ class Movies extends Component {
                             <BarFilter result={state.totalResults}
                                        type="film"
                                        filters={this.filters}
-                                       active-filter={this.filters[props.matches.filter] || 'Popularité'}/>
+                                       active-filter={this.filters[props.matches.filter] || 'Notes des spectateurs'}/>
 
-                            {state.moviesCard}
+                            {state.moviesValues.map(data =>
+                                <div>
+                                    <MovieCard id={data.id}
+                                               title={data.title}
+                                               release_date={data.release_date || ''}
+                                               vote_average={data.vote_average}
+                                               poster_path={data.poster_path}
+                                               overview={data.overview}
+                                               adult={data.adult}
+                                               original_language={data.original_language}
+                                               footerCard={
+                                                   <SmallButton
+                                                       onclick={() => this.props['update-selection'](data.id, data.title)}
+                                                       text={this.getTextBtnSelection(data.id)}
+                                                       visibility=""/>
+                                               }/>
+                                </div>
+                            )}
 
                             <div class="text-center" onClick={() => this.addMoviesCard()}>
                                 <BigRoundButton text="Plus" loading={this.state.loadingClass}/>
@@ -128,7 +138,6 @@ class Movies extends Component {
                                     <label class="input-label">Titre du film</label>
                                     <input class="form-input custom-input" type="text"
                                            onChange={this.searchChange}
-                                           value={state.search}
                                            placeholder="Oblivion, Interstellar ..."/>
                                     <BigButton text="Rechercher"/>
                                 </form>
@@ -136,15 +145,16 @@ class Movies extends Component {
 
                             <Menu title="Selection" body={
                                 <div>
-                                    {Object.keys(state.selectedMovies).map(item => (
+                                    {Object.keys(props.selection).map(item => (
                                         <div class="toast selection-movie-toast mt-1">
                                             <button class="btn btn-clear float-right"
-                                                    onClick={() => this.updateMovieSelection(item, state.selectedMovies[item])}/>
-                                            {state.selectedMovies[item]}
+                                                    onClick={() => this.props['update-selection'](item, props.selection[item])}/>
+                                            {props.selection[item]}
                                         </div>
                                     ))}
-
-                                    <BigButton text="Valider la selection"/>
+                                    <form action="/recommendation">
+                                        <BigButton text="Valider la selection"/>
+                                    </form>
                                 </div>
                             }/>
                         </div>

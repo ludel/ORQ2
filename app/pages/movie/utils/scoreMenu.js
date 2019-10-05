@@ -16,9 +16,9 @@ class RateMenu extends Component {
             const metacritic = this.getScore(scores, 'metacritic:score');
 
             this.setState({
-                tomato: tomato || {value: 0},
-                imdb: imdb || {value: 0},
-                metacritic: metacritic || {value: 0}
+                tomato: tomato || {value: '-'},
+                imdb: imdb || {value: '-'},
+                metacritic: metacritic || {value: '-'}
             });
         })
     }
@@ -46,7 +46,7 @@ class RateMenu extends Component {
                 </div>
 
                 <div class="column col-3 vertical-line ">
-                    <button class="btn btn-link m-0 tooltip" data-tooltip="Rotten tomato">
+                    <button class="btn btn-link m-0 tooltip" data-tooltip="Rotten Tomato">
                         <Image src="img/icon/rottentomato.png"/>
                     </button>
                     <button class="btn btn-link m-0 text-light">
@@ -55,7 +55,7 @@ class RateMenu extends Component {
                 </div>
 
                 <div class="column col-3 vertical-line">
-                    <button class="btn btn-link m-0 tooltip" data-tooltip="imdb">
+                    <button class="btn btn-link m-0 tooltip" data-tooltip="IMDB">
                         <Image src="img/icon/imdb.png"/>
                     </button>
                     <button class="btn btn-link m-0 text-light">
@@ -64,7 +64,7 @@ class RateMenu extends Component {
                 </div>
 
                 <div class="column col-3 vertical-line">
-                    <button class="btn btn-link m-0 tooltip" data-tooltip="Metacritic">
+                    <button class="btn btn-link m-0 tooltip" data-tooltip="MetaCritic">
                         <Image src="img/icon/metacritic.png"/>
                     </button>
                     <button class="btn btn-link m-0 text-light">
