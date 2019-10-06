@@ -27,7 +27,7 @@ class CarouselList extends Component {
     };
 
     before() {
-        if (this.state.currentIndex - 1 > 0)
+        if (this.state.currentIndex > 0)
             this.setState({currentIndex: this.state.currentIndex - 1});
         else
             this.setState({currentIndex: this.state.movieIds.length - 1});
