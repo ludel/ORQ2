@@ -49,7 +49,7 @@ class CategoryMenu extends Component {
         }
     }
 
-    render(props, state) {
+    render() {
         return (
             <div>
                 <ul class="tab tab-block tab-category">

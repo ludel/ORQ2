@@ -4,11 +4,14 @@ import Router from 'preact-router';
 import 'preact/devtools'
 
 import constants from "./constants";
+
 import Header from './pages/header'
 import Movie from "./pages/movie";
 import Movies from "./pages/movies";
 import Recommendation from "./pages/recommendation";
 import Footer from "./pages/footer";
+import Persons from "./pages/persons";
+import Person from "./pages/person";
 
 const mountNode = document.getElementById('app');
 
@@ -50,8 +53,10 @@ class App extends Component {
                     <Movie path="/movie/:id/:category?" setHeader={this.headerCallBack}
                            update-selection={this.updateMovieSelection} selection={state.selection}/>
                     <Recommendation path="/recommendation" setHeader={this.headerCallBack}/>
+
+                    <Persons path="/persons" setHeader={this.headerCallBack}/>
+                    <Person path="/person/:id" setHeader={this.headerCallBack}/>
                 </Router>
-                <Footer bg-type={state.bgType}/>
             </div>
         );
     }

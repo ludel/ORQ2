@@ -16,10 +16,12 @@ class CastLine extends Component {
         return (
             <div class="cast">
                 <figure class="avatar avatar-xl" data-initial={this.getInitialName()}>
-                    <img src={`https://image.tmdb.org/t/p/w92/${props['profile-path']}`} alt=" "/>
+                    <a href={props.href}>
+                        <img src={`https://image.tmdb.org/t/p/w92/${props['profile-path']}`} alt=" "/>
+                    </a>
                 </figure>
-                <span class="cast-item ml-2">{props.name}</span>
-                <span class="cast-item mr-0">{props.character}</span>
+                <a class="cast-item text-bold text-light ml-2" href={props.href}>{props.name}</a>
+                <span class="cast-item text-justify mr-0 text-italic">{props.character}</span>
             </div>
         )
     }

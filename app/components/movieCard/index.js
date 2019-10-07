@@ -1,8 +1,6 @@
 import {h, Component} from 'preact';
 import style from './style.css';
 
-import SmallButton from "../buttons/smallButton";
-import {config} from '../../config'
 import constants from "../../constants";
 import DateFormat from "../time/dateFormat";
 

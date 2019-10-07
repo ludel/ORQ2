@@ -8,8 +8,10 @@ import CastLine from "../../../components/castLine";
 
 class Overview extends Component {
     getNamesLink(category) {
-        const names = category.map((element) => element.name);
-        return names.map(((name, i) => <span><a href="">{name}</a>{i < names.length - 1 ? ', ' : ''}</span>))
+        return category.map((e, i) => <span>
+            <a href={`/person/${e.id}`}>{e.name}</a>{i < category.length - 1 ? ', ' : ''}
+        </span>
+        )
     }
 
     getNames(category, className, separator) {
@@ -17,8 +19,8 @@ class Overview extends Component {
         return names.map(((name, i) => <span class={className}>{name}{i < names.length - 1 ? separator : ''}</span>))
     }
 
-    getMainTrailer(){
-        if(this.props.video[0])
+    getMainTrailer() {
+        if (this.props.video[0])
             return this.props.video[0].key;
         else
             return ''
@@ -45,7 +47,7 @@ class Overview extends Component {
                     <div class="overview-col-item">
                         <h5>Casting</h5>
                         {props.actors.slice(0, 6).map(e =>
-                            <CastLine profile-path={e.profile_path} name={e.name} character={e.character}/>)}
+                            <CastLine profile-path={e.profile_path} name={e.name} character={e.character} href={`/person/${e.id}`}/>)}
                     </div>
 
                     <hr/>

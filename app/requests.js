@@ -26,6 +26,12 @@ export default {
         }
     },
     people: {
+        popular(page) {
+            return axios.get(`${config.API_URL}peoples/popular/${page}`)
+        },
+        detail(id) {
+            return axios.get(`${config.API_URL}peoples/${id}`)
+        },
         search(query, page) {
             return axios.get(`${config.API_URL}peoples/search/${query}/${page}`)
         },
