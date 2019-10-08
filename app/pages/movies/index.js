@@ -14,7 +14,7 @@ class Movies extends Component {
     constructor(props) {
         super(props);
         this.filters = {
-            'top': 'Notes des spectateurs',
+            'top': 'Notes',
             'popularity': 'Popularité',
             'now_playing': "À l'affiche",
             'upcoming': "Sortie à venir",
