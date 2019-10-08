@@ -25,6 +25,10 @@ def app():
 def app():
     return static_file('app.css', root='dist')
 
+@get('/favicon.ico')
+def app():
+    return static_file('img/icon/favicon.ico', root='assets')
+
 @get('/assets/<path:path>')
 def static(path):
     return static_file(path, root='assets')
