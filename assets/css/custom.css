@@ -2,12 +2,12 @@ body {
     color: white;
 }
 
-header {
+.bg-img-max {
     background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-lg.jpg");
     background-size: contain;
 }
 
-footer {
+.bg-img-min {
     background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-footer.jpg");
     background-size: contain;
 }
@@ -65,6 +65,19 @@ footer {
     background-color: #06121e;
     padding-top: 4%;
     padding-bottom: 4%;
+}
+
+.list-step {
+    font-size: 20px
+}
+
+.step-cols {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.img-step{
+    border: white 1px dashed;
 }
 
 .mr-3 {

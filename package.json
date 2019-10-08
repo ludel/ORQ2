@@ -6,7 +6,7 @@
   "repository": "github:therealparmesh/preact-boilerplate",
   "author": "Parmesh Krishen",
   "scripts": {
-    "build": "parcel build app/app.js",
+    "build": "rm dist/* && parcel build app/app.js",
     "start": "parcel app/index.html"
   },
   "dependencies": {

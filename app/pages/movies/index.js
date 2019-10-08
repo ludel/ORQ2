@@ -88,7 +88,7 @@ class Movies extends Component {
     };
 
     getTextBtnSelection(id) {
-        const selection = JSON.parse(localStorage.getItem('selection'));
+        const selection = JSON.parse(localStorage.getItem('selection')) || {};
         const isSelected = Object.keys(selection).includes(id.toString());
 
         if (isSelected)
@@ -134,12 +134,12 @@ class Movies extends Component {
 
                         <div class="column col-3 hide-lg menu-col">
                             <Menu title="Recherche" body={
-                                <form action={`/movies/${state.search}`}>
+                                <form action={`/app/#/movies/${state.search}`}>
                                     <label class="input-label">Titre du film</label>
                                     <input class="form-input custom-input" type="text"
                                            onChange={this.searchChange}
                                            placeholder="Oblivion, Interstellar ..."/>
-                                    <BigButton text="Rechercher"/>
+                                    <BigButton text="Rechercher" type="submit"/>
                                 </form>
                             }/>
 
@@ -152,9 +152,7 @@ class Movies extends Component {
                                             {props.selection[item]}
                                         </div>
                                     ))}
-                                    <form action="/recommendation">
-                                        <BigButton text="Valider la selection"/>
-                                    </form>
+                                    <BigButton text="Valider la selection" href="/recommendation"/>
                                 </div>
                             }/>
                         </div>

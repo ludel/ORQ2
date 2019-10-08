@@ -9,7 +9,10 @@ dist
 node_modules/
 # User-specific stuff
 .idea/
-
+dist/
+assets/css/spectre-exp.min.css
+assets/css/spectre-icons.min.css
+assets/css/spectre.min.css
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,

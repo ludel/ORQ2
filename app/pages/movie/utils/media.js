@@ -21,7 +21,10 @@ class Media extends Component {
                     <div class="columns">
                         {props.posters.map(e =>
                             <div class="column col-3 col-lg-12">
-                                <img src={`${e.key}/0.jpg`} class="img-responsive mb-2 c-hand" alt="poster"/>
+                                <a href={`https://image.tmdb.org/t/p/original${e}`} target="_blank">
+                                    <img src={`https://image.tmdb.org/t/p/w185${e}`} class="img-responsive mb-2 c-hand"
+                                         alt="poster"/>
+                                </a>
                             </div>
                         )}
                     </div>
@@ -32,7 +35,8 @@ class Media extends Component {
                     <div class="columns">
                         {props.backdrops.map(e =>
                             <div class="column col-3 col-lg-12">
-                                <img src={`${e.key}/0.jpg`} class="img-responsive mb-2 c-hand" alt="backdrop"/>
+                                <img src={`https://image.tmdb.org/t/p/w342/${e.key}`} class="img-responsive mb-2 c-hand"
+                                     alt="backdrop"/>
                             </div>
                         )}
                     </div>

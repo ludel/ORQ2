@@ -42,8 +42,8 @@ class CategoryMenu extends Component {
                                total={this.props.movie.reviews.total_results}/>;
             case 'media':
                 return <Media videos={this.props.movie.videos.results}
-                              backdrops={this.props.movie.images.posters}
-                              posters={this.props.movie.images.backdrops}/>;
+                              backdrops={this.props.movie.images.backdrops}
+                              posters={[this.props.movie.backdrop_path]}/>;
             default:
                 return ''
         }

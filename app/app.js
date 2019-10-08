@@ -1,9 +1,11 @@
-import {h, render, Component} from 'preact'
-import Router from 'preact-router';
-
 import 'preact/devtools'
 
+import {h, render, Component} from 'preact'
+import Router from 'preact-router';
+import {createHashHistory} from 'history';
+
 import constants from "./constants";
+import style from './style.css';
 
 import Header from './pages/header'
 import Movie from "./pages/movie";
@@ -28,7 +30,7 @@ class App extends Component {
 
     updateMovieSelection = (id, title) => {
         const selection = this.state.selection;
-        if (Object.keys(selection).includes(id.toString()))
+        if (Object.keys(selection).includes((id || '').toString()))
             delete selection[id];
         else
             selection[id] = title;
@@ -47,7 +49,7 @@ class App extends Component {
         return (
             <div>
                 <Header menu={state.menu} breadcrumb={state.breadcrumb} bg-type={state.bgType}/>
-                <Router>
+                <Router history={createHashHistory()}>
                     <Movies path="/movies/:filter?" setHeader={this.headerCallBack}
                             update-selection={this.updateMovieSelection} selection={state.selection}/>
                     <Movie path="/movie/:id/:category?" setHeader={this.headerCallBack}

@@ -2,18 +2,22 @@
 <html lang="fr">
 
 <head>
+    <title>On Regarde Quoi - Trouver un film à voir</title>
+    <meta name="description" content="On Regarde Quoi vous permet de trouver un film à voir gratuitement et sans
+     inscription grâce système de recommandation personnalisée !"/>
+
     % include('template/base/head.html')
 </head>
 
 <body>
 
-<header class="banner-header">
+<header class="bg-img-max banner-header">
     % include('template/base/header.html')
 
 
     <div class="text-light ">
         <h1 class="text-center title">
-            Trouver un film facilement et rapidement à voir.
+            Trouver un film à voir facilement et rapidement.
         </h1>
         <div class="container grid-xl">
             <h2 class="text-center subtitle">
@@ -24,10 +28,10 @@
         </div>
 
         <h3 class="text-center subtitle">
-            <a href="#" class="red-btn-rounded text-light hide-lg">
+            <a href="/app/#/movies" class="red-btn-rounded text-light hide-lg">
                 Silence, Moteur, ça Tourne, Action !
             </a>
-            <a href="#" class="red-btn-rounded text-light show-lg">
+            <a href="/app/#/movies" class="red-btn-rounded text-light show-lg">
                 Silence, Moteur, Action !
             </a>
         </h3>
@@ -52,50 +56,62 @@
 
 
 <div class="banner-1">
-    <div class="columns col-gapless text-img">
-        <div class="column col-md-12 col-6">
-            <h4>La première étape consiste à sélectionner vos films favoris</h4>
-            <ul>
-                <li>Vous pouvez trier les résulats ou faire une recherche</li>
-                <li>Il vous suffit de cliquer sur une image pour faire apparaitre les informations</li>
-                <li>Vous pouvez voir la fiche complète et l'ajoutez à votre sélection</li>
-            </ul>
+    <div class="container grid-xl">
+        <div class="columns step-cols">
+            <div class="column col-md-12 col-6 vertical-align">
+                <h4 class="text-bold">La première étape consiste à sélectionner vos films favoris</h4>
+                <ul class="list-step">
+                    <li>Vous pouvez trier les résulats ou faire une recherche</li>
+                    <li>Il vous suffit de cliquer sur une image pour faire apparaitre les informations</li>
+                    <li>Vous pouvez voir la fiche complète et l'ajoutez à votre sélection</li>
+                </ul>
+            </div>
+            <div class="column">
+                <img src="/assets/img/first-step.jpg" class="img-responsive " alt="Liste de film"/>
+            </div>
         </div>
-        <div class="column">col-6</div>
-    </div>
 
-    <div class="columns col-gapless text-img">
-        <div class="column col-md-12 col-6">col-6</div>
-        <div class="column">
-            <h4>En fonction de votre liste, On Regarde Quoi vous proposent des recommandations personnalisées</h4>
-            <ul>
-                <li>
-                    Valider votre liste pour continuer. Pas d'inquiétude, il est possible de la modifier par la suite
-                </li>
-                <li>
-                    Pour chaque film, vous disposez d'une liste de recommandation
-                </li>
-            </ul>
+        <div class="columns step-cols">
+            <div class="column col-md-12 col-6">
+                <img src="/assets/img/second-step.jpg" class="img-responsive " alt="Recommandations personnalisées"/>
+            </div>
+            <div class="column">
+                <h4 class="text-bold">En fonction de votre liste, On Regarde Quoi vous proposent des recommandations
+                    personnalisées</h4>
+                <ul class="list-step">
+                    <li>
+                        Valider votre liste pour continuer. Pas d'inquiétude, il est possible de la modifier par la
+                        suite
+                    </li>
+                    <li>
+                        Pour chaque film, vous disposez d'une liste de recommandation
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="columns col-gapless text-img">
-        <div class="column col-md-12 col-6">
-            <h4>Chaque film dispose d’une fiche détaillée contenant: </h4>
-            <ul>
-                <li>
-                    Les caractéristiques générales du film comme le réalisateur, les acteurs principaux, date de sortie
-                    ...
-                </li>
-                <li>
-                    Leur disponibilité sur les plateformes de streaming ou de locations
-                </li>
-                <li>
-                    La bande-annonce, synopsie et des critiques de spectateurs
-                </li>
-            </ul>
+        <div class="columns step-cols">
+            <div class="column col-md-12 col-6">
+                <h4 class="text-bold">Chaque film dispose d’une fiche détaillée contenant: </h4>
+                <ul class="list-step">
+                    <li>
+                        Les caractéristiques générales du film comme le réalisateur, les acteurs principaux, date de
+                        sortie
+                        ...
+                    </li>
+                    <li>
+                        Leur disponibilité sur les plateformes de streaming ou de locations
+                    </li>
+                    <li>
+                        La bande-annonce, synopsie et des critiques de spectateurs
+                    </li>
+                </ul>
+            </div>
+            <div class="column">
+                <img src="/assets/img/third-step.jpg" class="img-responsive " alt="Fiche détaillée du film"/>
+
+            </div>
         </div>
-        <div class="column">col-6</div>
     </div>
 </div>
 
@@ -159,7 +175,7 @@
     </div>
 </div>
 
-<footer>
+<footer class="bg-img-min">
     % include('template/base/footer.html')
 </footer>
 

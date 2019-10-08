@@ -56,7 +56,7 @@ class Movie extends Component {
     }
 
     getTextBtnSelection(id) {
-        const selection = JSON.parse(localStorage.getItem('selection'));
+        const selection = JSON.parse(localStorage.getItem('selection')) || {};
         const isSelected = Object.keys(selection).includes(id.toString());
 
         if (isSelected)
