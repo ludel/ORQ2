@@ -12,6 +12,18 @@ body {
     background-size: contain;
 }
 
+
+@media (max-width: 800px) {
+    .bg-img-max {
+        background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-xs.jpg");
+        background-size: contain;
+
+    }
+    .bg-img-min {
+        background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-xs.jpg");
+    }
+}
+
 .vertical-align {
     margin: auto;
     padding: auto;
@@ -29,7 +41,7 @@ body {
 }
 
 .title {
-    margin-top: 90px;
+    margin-top: 3%;
 }
 
 .subtitle {
@@ -52,7 +64,7 @@ body {
 }
 
 .banner-header {
-    min-height: 670px;
+    padding-bottom: 7%;
 }
 
 .banner-0 {
@@ -90,4 +102,9 @@ body {
 
 .pt-3 {
     padding-top: 1.2rem !important;
+}
+
+.img-section{
+    flex-grow: 0!important;
+    margin-right: 20px;
 }
