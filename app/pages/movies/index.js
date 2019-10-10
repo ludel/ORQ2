@@ -106,7 +106,7 @@ class Movies extends Component {
                             <BarFilter result={state.totalResults}
                                        type="film"
                                        filters={this.filters}
-                                       active-filter={this.filters[props.matches.filter] || 'Notes des spectateurs'}/>
+                                       active-filter={this.filters[props.matches.filter] || 'Notes'}/>
 
                             {state.moviesValues.map(data =>
                                 <div>
