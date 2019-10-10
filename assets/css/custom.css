@@ -3,12 +3,12 @@ body {
 }
 
 .bg-img-max {
-    background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-lg.jpg");
+    background-image: linear-gradient(rgba(2, 13, 24, 0.7), rgba(2, 13, 24, 0.8)), url("/assets/img/banner-lg.jpg");
     background-size: contain;
 }
 
 .bg-img-min {
-    background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-footer.jpg");
+    background-image: linear-gradient(rgba(2, 13, 24, 0.7), rgba(2, 13, 24, 0.8)), url("/assets/img/banner-footer.jpg");
     background-size: contain;
 }
 
