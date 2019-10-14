@@ -38,9 +38,7 @@ export default {
     },
     scoring: {
         movie(query) {
-            return fetch(`https://apis.justwatch.com/content/titles/fr_FR/popular?body={"content_types":["movie"],"page":1,"page_size":1,"query":"${query}"}`).then(function (response) {
-                return response.json();
-            })
+            return axios.get(`${config.API_URL}score/${query}`)
         }
     },
 
