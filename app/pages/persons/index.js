@@ -14,7 +14,6 @@ class Persons extends Component {
 
     componentDidMount() {
         this.props.setHeader("Célébrités", {'Liste des célébrités': '/people'});
-        console.log("===========");
         this.addPersonCard()
     }
 

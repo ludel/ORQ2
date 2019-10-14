@@ -14,7 +14,6 @@ class CarouselList extends Component {
     componentDidMount() {
         requests.movies.recommendation(this.props['movie-id'], Object.keys(this.props.selection)).then(res => {
             const ids = Object.values(res.data['ids']);
-            console.log(ids);
             this.setState({movieIds: ids, loading: false});
         })
     }
