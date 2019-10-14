@@ -38,7 +38,9 @@ export default {
     },
     scoring: {
         movie(query) {
-            return axios.get(`https://apis.justwatch.com/content/titles/fr_FR/popular?body={"content_types":["movie"],"page":1,"page_size":1,"query":"${query}"}`)
+            return fetch(`https://apis.justwatch.com/content/titles/fr_FR/popular?body={"content_types":["movie"],"page":1,"page_size":1,"query":"${query}"}`).then(function (response) {
+                return response.json();
+            })
         }
     },
 

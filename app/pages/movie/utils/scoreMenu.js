@@ -10,7 +10,7 @@ class RateMenu extends Component {
 
     componentDidMount() {
         requests.scoring.movie(this.props.title).then(res => {
-            const scores = res.data['items'][0]['scoring'];
+            const scores = res['items'][0]['scoring'];
             const tomato = this.getScore(scores, 'tomato:meter');
             const imdb = this.getScore(scores, 'imdb:score');
             const metacritic = this.getScore(scores, 'metacritic:score');
