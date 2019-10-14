@@ -1,5 +1,5 @@
 const prod = {
-    ASSETS_URL: 'https://onregardequoi.net//assets/',
+    ASSETS_URL: 'https://onregardequoi.net/assets/',
     API_URL: 'https://api.onregardequoi.net/',
 };
 
