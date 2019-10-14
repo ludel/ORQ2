@@ -109,7 +109,6 @@ class Movies extends Component {
                                        active-filter={this.filters[props.matches.filter] || 'Notes'}/>
 
                             {state.moviesValues.map(data =>
-                                <div>
                                     <MovieCard id={data.id}
                                                title={data.title}
                                                release_date={data.release_date || ''}
@@ -124,7 +123,6 @@ class Movies extends Component {
                                                        text={this.getTextBtnSelection(data.id)}
                                                        visibility=""/>
                                                }/>
-                                </div>
                             )}
 
                             <div class="text-center" onClick={() => this.addMoviesCard()}>
