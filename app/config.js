@@ -1,6 +1,6 @@
 const prod = {
-    ASSETS_URL: 'http://51.75.27.95:8003/assets/',
-    API_URL: 'http://51.75.27.95:8002/',
+    ASSETS_URL: 'https://onregardequoi.net//assets/',
+    API_URL: 'https://api.onregardequoi.net/',
 };
 
 const dev = {
