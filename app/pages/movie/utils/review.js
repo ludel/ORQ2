@@ -1,5 +1,5 @@
 import {h, Component} from 'preact';
-import CastLine from "../../../components/castLine";
+import ObjectLine from "../../../components/objectLine";
 import SmallButton from "../../../components/buttons/smallButton";
 
 

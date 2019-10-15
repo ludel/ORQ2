@@ -5,7 +5,7 @@ import requests from "../../requests";
 import Menu from "../../components/menu";
 import BigButton from "../../components/buttons/bigButton";
 import DateFormat from "../../components/time/dateFormat";
-import CastLine from "../../components/castLine";
+import ObjectLine from "../../components/objectLine";
 
 class Person extends Component {
 
@@ -36,20 +36,28 @@ class Person extends Component {
         })
     }
 
+    getCastLine = (casting) => casting.map(e => {
+        if (e.title && e.release_date)
+            return <ObjectLine profile-path={e.poster_path} name={e.title} character={e.character}
+                               href={`/movie/${e.id}`} date={e.release_date.slice(0, 4)}/>
+    });
+
+    getCrewLine = (crew) => crew.map(e => {
+        if (e.department === this.state.detail.known_for_department && e.title && e.release_date)
+            return <ObjectLine profile-path={e.poster_path} name={e.title} character={e.job}
+                               href={`/movie/${e.id}`} date={e.release_date.slice(0, 4)}/>
+    });
+
     switchCastCrew() {
-        if (this.state.detail.known_for_department === 'Acting')
-            return this.state.detail.combined_credits.cast.map(e => {
-                    if (e.title)
-                        return <CastLine profile-path={e.poster_path} name={e.title} character={e.character}
-                                         href={`/movie/${e.id}`}/>
-                }
-            );
-        else
-            return this.state.detail.combined_credits.crew.map(e => {
-                if (e.department === this.state.detail.known_for_department && e.title)
-                    return <CastLine profile-path={e.poster_path} name={e.title} character={e.job}
-                                     href={`/movie/${e.id}`}/>
-            });
+        const credits = this.state.detail.combined_credits;
+
+        if (this.state.detail.known_for_department === 'Acting') {
+            const sortCast = credits.cast.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+            return this.getCastLine(sortCast);
+        } else {
+            const sortCrew = credits.crew.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+            return this.getCrewLine(sortCrew);
+        }
     }
 
 

@@ -4,7 +4,7 @@ import requests from "../../../requests";
 import Image from "../../../components/image";
 import Minutes from "../../../components/time/minutes";
 import DateFormat from "../../../components/time/dateFormat";
-import CastLine from "../../../components/castLine";
+import ObjectLine from "../../../components/objectLine";
 
 class Overview extends Component {
     getNamesLink(category) {
@@ -47,7 +47,7 @@ class Overview extends Component {
                     <div class="overview-col-item">
                         <h5>Casting</h5>
                         {props.actors.slice(0, 6).map(e =>
-                            <CastLine profile-path={e.profile_path} name={e.name} character={e.character} href={`/person/${e.id}`}/>)}
+                            <ObjectLine profile-path={e.profile_path} name={e.name} character={e.character} href={`/person/${e.id}`}/>)}
                     </div>
 
                     <hr/>

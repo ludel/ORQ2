@@ -2,7 +2,7 @@ import {h, Component} from 'preact';
 import style from './style.css';
 
 
-class CastLine extends Component {
+class ObjectLine extends Component {
     getInitialName() {
         const names = this.props.name.split(' ');
         try {
@@ -20,11 +20,13 @@ class CastLine extends Component {
                         <img src={`https://image.tmdb.org/t/p/w92/${props['profile-path']}`} alt=" "/>
                     </a>
                 </figure>
-                <a class="cast-item text-bold text-light ml-2" href={props.href}>{props.name}</a>
+                <a class="cast-item text-bold text-light ml-2" href={props.href}>
+                    {props.name} {props.date ? <span class="text-gray hide-sm">({props.date})</span> : ""}
+                </a>
                 <span class="cast-item text-justify mr-0 text-italic">{props.character}</span>
             </div>
         )
     }
 }
 
-export default CastLine
+export default ObjectLine
