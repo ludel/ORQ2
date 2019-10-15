@@ -1,5 +1,5 @@
 import {h, Component} from 'preact';
-import Index from "../../../components/video";
+import Video from "../../../components/video";
 
 class Media extends Component {
     render(props, state) {
@@ -10,7 +10,7 @@ class Media extends Component {
                     <div class="columns">
                         {props.videos.map(e =>
                             <div class="column col-3 col-lg-12">
-                                <Index id={`trailer-${e.id}`} src-key={e.key}/>
+                                <Video id={`trailer-${e.id}`} src-key={e.key}/>
                             </div>
                         )}
                     </div>
