@@ -37,7 +37,7 @@ class Video extends Component {
                             <a class="btn btn-clear float-right" aria-label="Close"
                                onClick={() => this.deleteIframe()}/>
                         </div>
-                        <div class="modal-body" style="height:920px">
+                        <div class="modal-body">
                             {this.state.iframe}
                         </div>
                     </div>
