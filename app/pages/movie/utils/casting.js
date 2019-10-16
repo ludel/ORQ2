@@ -29,7 +29,7 @@ class Casting extends Component {
                 <div className="casting-line">
                     <h5>Scénario</h5>
                     {Array.from(this.getByDepartment('Writing', props.credits.crew)).slice(0,5).map(
-                        e => <ObjectLine profile-path={e.profile_path} name={e.name} character={e.job} href={`person/${e.id}`}/>
+                        e => <ObjectLine profile-path={e.profile_path} name={e.name} character={e.job} href={`/person/${e.id}`}/>
                     )}
                 </div>
 
