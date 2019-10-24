@@ -90,7 +90,7 @@ class Header extends Component {
                             </div>
                         </div>
 
-                        <div class="modal-footer" too>
+                        <div class="modal-footer" >
                             <div class="text-center" onClick={() => this.closeModal()}>
                                 <a href="#" class="nav-title">Connexion</a>
                                 <BigRoundButton text="Inscription" href="#"/>

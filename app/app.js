@@ -39,7 +39,7 @@ class App extends Component {
         else
             selection[id] = title;
 
-        if (Object.keys(this.state.selection).length < 10) {
+        if (Object.keys(this.state.selection).length <= 10) {
             this.setState({
                 selection: selection
             });

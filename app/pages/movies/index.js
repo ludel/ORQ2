@@ -109,20 +109,20 @@ class Movies extends Component {
                                        active-filter={this.filters[props.matches.filter] || 'Notes'}/>
 
                             {state.moviesValues.map(data =>
-                                    <MovieCard id={data.id}
-                                               title={data.title}
-                                               release_date={data.release_date || ''}
-                                               vote_average={data.vote_average}
-                                               poster_path={data.poster_path}
-                                               overview={data.overview}
-                                               adult={data.adult}
-                                               original_language={data.original_language}
-                                               footerCard={
-                                                   <SmallButton
-                                                       onclick={() => this.props['update-selection'](data.id, data.title)}
-                                                       text={this.getTextBtnSelection(data.id)}
-                                                       visibility=""/>
-                                               }/>
+                                <MovieCard id={data.id}
+                                           title={data.title}
+                                           release_date={data.release_date || ''}
+                                           vote_average={data.vote_average}
+                                           poster_path={data.poster_path}
+                                           overview={data.overview}
+                                           adult={data.adult}
+                                           original_language={data.original_language}
+                                           footerCard={
+                                               <SmallButton
+                                                   onclick={() => this.props['update-selection'](data.id, data.title)}
+                                                   text={this.getTextBtnSelection(data.id)}
+                                                   visibility=""/>
+                                           }/>
                             )}
 
                             <div class="text-center" onClick={() => this.addMoviesCard()}>

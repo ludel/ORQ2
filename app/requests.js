@@ -21,9 +21,18 @@ export default {
         detail(id) {
             return axios.get(`${config.API_URL}movies/${id}`)
         },
-        recommendation(id, selectionMoviesIds) {
-            return axios.get(`${config.API_URL}movies/${id}/recommendation/${selectionMoviesIds.join(',')}`)
-        }
+        matrix(selection) {
+            return axios.post(`${config.API_URL}recommendation/matrix`, {
+                "selection": selection
+            })
+        },
+        recommendation(cursorAbout, userMatrix, selection) {
+            return axios.post(`${config.API_URL}recommendation`, {
+                cursorAbout: cursorAbout,
+                userMatrix: userMatrix,
+                selection: selection
+            })
+        },
     },
     people: {
         popular(page) {
