@@ -5,6 +5,7 @@ import Image from "../../../components/image";
 import Minutes from "../../../components/time/minutes";
 import DateFormat from "../../../components/time/dateFormat";
 import ObjectLine from "../../../components/objectLine";
+import Translation from "../../../components/translation";
 
 class Overview extends Component {
     getNamesLink(category) {
@@ -16,7 +17,7 @@ class Overview extends Component {
 
     getNames(category, className, separator) {
         const names = category.map((element) => element.name);
-        return names.map(((name, i) => <span class={className}>{name}{i < names.length - 1 ? separator : ''}</span>))
+        return names.map(((name, i) => <span class={className}><Translation value={name}/>{i < names.length - 1 ? separator : ''}</span>))
     }
 
     getMainTrailer() {

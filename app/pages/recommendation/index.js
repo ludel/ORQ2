@@ -5,6 +5,7 @@ import requests from "../../requests";
 
 import Carousel from "../../components/carousel";
 import BigRoundButton from "../../components/buttons/bigRoundButton";
+import Translation from "../../components/translation";
 
 
 class Recommendation extends Component {
@@ -36,7 +37,7 @@ class Recommendation extends Component {
                     <div class="container grid-xl">
                         {Object.keys(state.matrix).slice(0, state.number).map(key =>
                             <div>
-                                <h3>Concernant <span class="text-bold">{key}</span></h3>
+                                <h3>Concernant <span class="text-bold capitalize"><Translation value={key}/></span></h3>
                                 <Carousel matrix={state.matrix} about={key} selection={Object.keys(this.selection)}/>
                             </div>
                         )}
