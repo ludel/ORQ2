@@ -123,5 +123,6 @@ export default {
         'world war ii': 'seconde guerre mondiale',
         'world war i': 'premiere guerre mondiale',
         'dream world': 'monde imaginaire',
+        'based on novel or book':"adaptés d'un roman"
     },
 }

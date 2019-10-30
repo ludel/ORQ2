@@ -3,6 +3,7 @@ import style from './style.css';
 
 import requests from "../../requests";
 import MovieCard from "../movieCard";
+import Translation from "../translation";
 
 
 class Carousel extends Component {
@@ -65,7 +66,7 @@ class Carousel extends Component {
                                            <div>
                                                Relations:
                                                {Object.values(movieCursor.relations).map(e =>
-                                                   <span class="label label-rounded">{e}</span>
+                                                   <span class="label label-rounded capitalize"><Translation value={e}/></span>
                                                )}
                                            </div>
                                        }/>
