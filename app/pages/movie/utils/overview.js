@@ -1,7 +1,5 @@
 import {h, Component} from 'preact';
 
-import requests from "../../../requests";
-import Image from "../../../components/image";
 import Minutes from "../../../components/time/minutes";
 import DateFormat from "../../../components/time/dateFormat";
 import ObjectLine from "../../../components/objectLine";
