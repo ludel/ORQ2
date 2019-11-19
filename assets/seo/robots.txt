@@ -5,4 +5,4 @@ Allow: /sitemap.xml
 Sitemap: https://onregardequoi.net/sitemap.xml
 Disallow: /app
 Disallow: /app/
-Disallow: /about
+Disallow: /about$
