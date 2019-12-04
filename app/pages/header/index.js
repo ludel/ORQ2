@@ -23,6 +23,23 @@ class Header extends Component {
         this.setState({modal: ''})
     }
 
+    authMenu() {
+        if (localStorage.hasOwnProperty('auth'))
+            return (
+                <section className="navbar-section hide-lg">
+                    <BigRoundButton text="Mon compte" href="#"/>
+                </section>
+            );
+        else
+            return (
+                <section class="navbar-section hide-lg">
+                    <a href="/sign-in" class="nav-title">Connexion</a>
+                    <BigRoundButton text="Inscription" href="sign-up"/>
+                </section>
+            )
+
+    }
+
     render(props, state) {
         return (
             <header class="header" style={this.props['bg-type']}>
@@ -50,10 +67,8 @@ class Header extends Component {
                         <SearchBar width='21rem' limit={3}/>
                     </section>
 
-                    <section class="navbar-section hide-lg">
-                        <a href="#" class="nav-title">Connexion</a>
-                        <BigRoundButton text="Inscription" href="#"/>
-                    </section>
+                    {this.authMenu()}
+
                 </div>
 
                 <div class="text-center mt-2">
@@ -90,7 +105,7 @@ class Header extends Component {
                             </div>
                         </div>
 
-                        <div class="modal-footer" >
+                        <div class="modal-footer">
                             <div class="text-center" onClick={() => this.closeModal()}>
                                 <a href="#" class="nav-title">Connexion</a>
                                 <BigRoundButton text="Inscription" href="#"/>

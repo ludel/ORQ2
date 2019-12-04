@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>On Regarde Quoi - Inscription</title>
+    <meta name="description" content="Inscription au site"/>
+    <meta name="robots" content="nofollow,noindex">
+
+    % include('template/base/head.html')
+</head>
+
+<body>
+
+<header class="bg-img-min">
+    % include('template/base/header.html')
+</header>
+
+<div class="toast toast-success text-center d-hide" id="success">
+    Vous êtes bien inscrit. <a href="/sign-in" class="btn-link">Se connecter</a>
+</div>
+
+<div class="toast toast-error text-center d-hide" id="error">
+    Erreur lors de l'inscription. Cet email est déjà utilisé.
+</div>
+
+<div class="banner-0">
+
+    <div class="container grid-xs">
+        <h1 class="text-center pb-2">Inscription</h1>
+
+        <div class="form-group">
+            <label class="form-label text-bold" for="email">Email</label>
+            <input class="form-input input-lg is-error" type="email" id="email" name="email"
+                   placeholder="exemple@mail.com" onchange="validateEmail()">
+        </div>
+        <div class="form-group pt-2">
+            <label class="form-label text-bold" for="password">Mot de passe</label>
+            <input class="form-input input-lg is-error" type="password" id="password" name="password"
+                   onchange="validatePassword()" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+        </div>
+        <div class="form-group pt-2">
+            <label class="form-label text-bold" for="password2">Confirmation du mot de passe</label>
+            <input class="form-input input-lg is-error" type="password" id="password2"
+                   onchange="validateConfirmPassword()" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+        </div>
+
+        <div class="text-center pt-3">
+            <button onclick="signUp()" id="submit" class="red-btn-rounded text-light c-hand">
+                Valider
+            </button>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="banner-1"></div>
+<footer class="bg-img-min">
+    % include('template/base/footer.html')
+</footer>
+
+<script>
+    let nbrInputValid = [0, 0, 0];
+
+    function validateEmail() {
+        const email = document.getElementById('email');
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        updateForms(email, 0, re.test(String(email.value).toLowerCase()));
+    }
+
+    function validatePassword() {
+        const password = document.getElementById('password');
+        updateForms(password, 1, password.value.length > 8);
+    }
+
+
+    function validateConfirmPassword() {
+        const password = document.getElementById('password');
+        const password2 = document.getElementById('password2');
+        updateForms(password2, 2, password.value === password2.value);
+    }
+
+    function updateForms(input, inputIndex, isValid) {
+        if (isValid) {
+            input.classList.remove('is-error');
+            input.classList.add('is-success');
+            nbrInputValid[inputIndex] = 1
+        } else {
+            input.classList.add('is-error');
+            input.classList.remove('is-success');
+            nbrInputValid[inputIndex] = 0
+        }
+    }
+
+    function signUp() {
+        const post = JSON.stringify({
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+        });
+
+        if (nbrInputValid.every((currentValue) => currentValue > 0))
+            fetch('{{api}}/session/sign_up/', {
+                method: "POST",
+                body: post,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                response.text().then(function (text) {
+                    if (text === 'User created')
+                        document.getElementById('success').classList.remove('d-hide');
+                    else
+                        document.getElementById('error').classList.remove('d-hide');
+                });
+
+            }).catch(error => {
+                console.error(error);
+            });
+    }
+
+</script>
+</body>
+</html>

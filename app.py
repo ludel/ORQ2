@@ -3,6 +3,7 @@ import os
 from bottle import get, static_file, template, run, default_app, request, redirect
 
 DEBUG = os.environ.get('DEBUG', False)
+API = 'http://localhost:8080' if DEBUG else 'https://api.onregardequoi.net'
 
 
 def slash_redirection(*args):
@@ -18,6 +19,18 @@ def index():
 @get('/about', apply=slash_redirection)
 def about():
     return template('template/static/about.html')
+
+
+@get('/sign-up/')
+@get('/sign-up', apply=slash_redirection)
+def about():
+    return template('template/static/signup.html', api=API)
+
+
+@get('/sign-in/')
+@get('/sign-in', apply=slash_redirection)
+def about():
+    return template('template/static/signin.html', api=API)
 
 
 @get('/app/')

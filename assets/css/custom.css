@@ -59,6 +59,7 @@ body {
 .red-btn-rounded {
     background-color: #dd003f;
     color: #ffffff;
+    border-width: 0;
     padding: 11px 25px;
     border-radius: 20px;
 }
