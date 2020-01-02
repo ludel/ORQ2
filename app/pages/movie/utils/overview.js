@@ -4,6 +4,7 @@ import Minutes from "../../../components/time/minutes";
 import DateFormat from "../../../components/time/dateFormat";
 import ObjectLine from "../../../components/objectLine";
 import Translation from "../../../components/translation";
+import constants from "../../../constants";
 
 class Overview extends Component {
     getNamesLink(category) {
@@ -38,8 +39,7 @@ class Overview extends Component {
                     <div class="overview-col-item">
                         <h5>Trailer</h5>
                         <div class="video-responsive ">
-                            <iframe src={`https://www.youtube.com/embed/${this.getMainTrailer()}`} frameborder="0"
-                                    allowfullscreen/>
+                            <iframe src={`https://www.youtube.com/embed/${this.getMainTrailer()}`}/>
                         </div>
                     </div>
 
@@ -54,6 +54,10 @@ class Overview extends Component {
                 </div>
 
                 <div class="column overview-col">
+                    <div class="overview-col-item">
+                        <h6 class="text-bold text-gray">Titre originale: </h6>
+                        {props['original-title']} <span class="text-gray">({props['original-language']})</span>
+                    </div>
                     <div class="overview-col-item">
                         <h6 class="text-bold text-gray">Réalisateur: </h6>
                         {this.getNamesLink(props['director'])}

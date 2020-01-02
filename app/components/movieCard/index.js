@@ -33,7 +33,8 @@ class MovieCard extends Component {
 
                     <p class="mb-2">
                         Date de sortie: <DateFormat value={props.release_date} separator="/"/><br/>
-                        Version Originale: {constants.VO[props.original_language]}
+                        Version Originale: {props.original_title}
+                        <span class="text-gray"> ({constants.VO[props.original_language]})</span>
                     </p>
                     {this.props.footerCard}
                 </div>

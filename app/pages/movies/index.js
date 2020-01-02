@@ -73,6 +73,7 @@ class Movies extends Component {
                         adult: data.adult,
                         overview: data.overview,
                         original_language: data.original_language,
+                        original_title: data.original_title,
                         is_clustered: data.is_clustered,
                     }),
                     totalResults: res.data.total_results
@@ -117,6 +118,7 @@ class Movies extends Component {
                                            overview={data.overview}
                                            adult={data.adult}
                                            original_language={data.original_language}
+                                           original_title={data.original_title}
                                            footerCard={
                                                <SmallButton
                                                    onclick={() => this.props['update-selection'](data.id, data.title)}
@@ -148,7 +150,7 @@ class Movies extends Component {
                                             <button class="btn btn-clear float-right"
                                                     onClick={() => this.props['update-selection'](item, props.selection[item])}/>
 
-                                            <a href={`/movie/${item}`} class="text-bold text-light">
+                                            <a href={`/movie/${item}`} class="light-link">
                                                 {props.selection[item]}
                                             </a>
 

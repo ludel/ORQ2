@@ -65,6 +65,12 @@ hr {
     background-color: #020D18;
 }
 
-.capitalize{
+.capitalize {
     text-transform: capitalize;
+}
+
+
+.light-link {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
 }

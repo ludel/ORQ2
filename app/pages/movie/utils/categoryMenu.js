@@ -34,7 +34,9 @@ class CategoryMenu extends Component {
                                  writer={this.getCredit('Writing', 'crew')}
                                  actors={this.props.movie.credits.cast}
                                  genres={this.props.movie.genres.slice(0, 3)}
-                                 video={this.props.movie.videos.results}/>;
+                                 video={this.props.movie.videos.results}
+                                 original-title={this.props.movie.original_title}
+                                 original-language={this.props.movie.original_language}/>;
             case 'casting':
                 return <Casting credits={this.props.movie.credits}/>;
             case 'reviews':
