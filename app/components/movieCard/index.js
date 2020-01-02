@@ -9,7 +9,7 @@ class MovieCard extends Component {
         return (
             <div class="columns card-movie">
                 <div class="column col-lg-12 col-2">
-                    <a href={`/movie/${props.id}`}>
+                    <a href={`#/movie/${props.id}`}>
                         <img src={`https://image.tmdb.org/t/p/w154/${props.poster_path}`}
                              class="img-responsive p-centered img-movie-card" alt={props.title}/>
                     </a>
@@ -17,7 +17,7 @@ class MovieCard extends Component {
 
                 <div class="column vertical-align">
                     <h5>
-                        <a href={`/movie/${props.id}`} class="text-bold text-light"> {props.title}</a>
+                        <a href={`#/movie/${props.id}`} class="text-bold text-light"> {props.title}</a>
                         <span class="text-gray"> ({props.release_date.slice(0, 4)})</span>
                     </h5>
 

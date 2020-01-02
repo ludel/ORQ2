@@ -9,7 +9,7 @@ import constants from "../../../constants";
 class Overview extends Component {
     getNamesLink(category) {
         return category.map((e, i) => <span>
-            <a href={`/person/${e.id}`}>{e.name}</a>{i < category.length - 1 ? ', ' : ''}
+            <a href={`#/person/${e.id}`}>{e.name}</a>{i < category.length - 1 ? ', ' : ''}
         </span>
         )
     }

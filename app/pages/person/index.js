@@ -39,13 +39,13 @@ class Person extends Component {
     getCastLine = (casting) => casting.map(e => {
         if (e.title && e.release_date)
             return <ObjectLine profile-path={e.poster_path} name={e.title} character={e.character}
-                               href={`/movie/${e.id}`} date={e.release_date.slice(0, 4)}/>
+                               href={`#/movie/${e.id}`} date={e.release_date.slice(0, 4)}/>
     });
 
     getCrewLine = (crew) => crew.map(e => {
         if (e.department === this.state.detail.known_for_department && e.title && e.release_date)
             return <ObjectLine profile-path={e.poster_path} name={e.title} character={e.job}
-                               href={`/movie/${e.id}`} date={e.release_date.slice(0, 4)}/>
+                               href={`#/movie/${e.id}`} date={e.release_date.slice(0, 4)}/>
     });
 
     switchCastCrew() {

@@ -150,7 +150,7 @@ class Movies extends Component {
                                             <button class="btn btn-clear float-right"
                                                     onClick={() => this.props['update-selection'](item, props.selection[item])}/>
 
-                                            <a href={`/movie/${item}`} class="light-link">
+                                            <a href={`#/movie/${item}`} class="light-link">
                                                 {props.selection[item]}
                                             </a>
 

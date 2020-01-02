@@ -94,7 +94,7 @@ class Header extends Component {
                             <a href="/movies" onClick={() => this.closeModal()} class="text-light" aria-label="Close">
                                 <h4>Liste de films <i class="icon icon-arrow-right"/></h4>
                             </a>
-                            <a href="/recommendation" onClick={() => this.closeModal()} class="text-light"
+                            <a href="#/recommendation" onClick={() => this.closeModal()} class="text-light"
                                aria-label="Close">
                                 <h4>Recommandation <i class="icon icon-arrow-right"/></h4>
                             </a>

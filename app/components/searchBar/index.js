@@ -62,13 +62,13 @@ class SearchBar extends Component {
                         <li class="divider search-divider" data-content="Films"/>
                         {state.movies.map((e) =>
                             <li class="menu-item">
-                                <a href={`/movie/${e.id}`} >{e.title} <span class="text-gray">{e.year}</span></a>
+                                <a href={`#/movie/${e.id}`} >{e.title} <span class="text-gray">{e.year}</span></a>
                             </li>
                         )}
                         <li class="divider search-divider" data-content="Personnes"/>
                         {state.peoples.map((e) =>
                             <li class="menu-item">
-                                <a href={`/person/${e.id}`}>{e.name} <span class="text-gray">{e.department}</span></a>
+                                <a href={`#/person/${e.id}`}>{e.name} <span class="text-gray">{e.department}</span></a>
                             </li>
                         )}
                     </ul>
