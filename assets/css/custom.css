@@ -3,7 +3,7 @@ body {
 }
 
 .bg-img-max {
-    background-image: linear-gradient(rgba(2, 13, 24, 0.7), rgba(2, 13, 24, 0.8)), url("/assets/img/banner-lg.jpg");
+    background-image: linear-gradient(rgba(2, 13, 24, 0.7), rgba(2, 13, 24, 0.7)), url("/assets/img/banner-lg.jpg");
     background-size: contain;
 }
 
@@ -15,12 +15,12 @@ body {
 
 @media (max-width: 800px) {
     .bg-img-max {
-        background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-xs.jpg");
+        background-image: linear-gradient(rgba(2, 13, 24, 0.7), rgba(2, 13, 24, 0.7)), url("/assets/img/banner-xs.jpg");
         background-size: contain;
 
     }
     .bg-img-min {
-        background-image: linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("/assets/img/banner-xs.jpg");
+        background-image: linear-gradient(rgba(2, 13, 24, 0.7), rgba(2, 13, 24, 0.8)), url("/assets/img/banner-xs.jpg");
     }
 }
 
@@ -69,13 +69,13 @@ body {
 }
 
 .banner-0 {
-    background-color: #020D18;
+    background-color: #081223;
     padding-top: 4%;
     padding-bottom: 4%;
 }
 
 .banner-1 {
-    background-color: #06121e;
+    background-color: #091932;
     padding-top: 4%;
     padding-bottom: 4%;
 }

@@ -3,10 +3,10 @@ import {config} from "./config";
 export default {
     bgStyle: {
         color: {
-            backgroundColor: '#020D18'
+            backgroundColor: '#081223'
         },
         image: {
-            backgroundImage: `linear-gradient(rgba(2, 13, 24, 0.9), rgba(2, 13, 24, 0.9)), url("${config.ASSETS_URL}img/banner.jpg")`,
+            backgroundImage: `linear-gradient(rgba(2, 13, 24, 0.75), rgba(2, 13, 24, 0.75)), url("${config.ASSETS_URL}img/banner.jpg")`,
             backgroundSize: 'contain'
         }
     },

@@ -23,13 +23,13 @@ def about():
 
 @get('/sign-up/')
 @get('/sign-up', apply=slash_redirection)
-def about():
+def sign_up():
     return template('template/static/signup.html', api=API)
 
 
 @get('/sign-in/')
 @get('/sign-in', apply=slash_redirection)
-def about():
+def sign_in():
     return template('template/static/signin.html', api=API)
 
 
