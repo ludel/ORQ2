@@ -147,7 +147,11 @@ class Movies extends Component {
                                         <div class="toast selection-movie-toast mt-1">
                                             <button class="btn btn-clear float-right"
                                                     onClick={() => this.props['update-selection'](item, props.selection[item])}/>
-                                            {props.selection[item]}
+
+                                            <a href={`/movie/${item}`} class="text-bold text-light">
+                                                {props.selection[item]}
+                                            </a>
+
                                         </div>
                                     ))}
                                     <BigButton text="Valider la selection" href="/recommendation"/>
