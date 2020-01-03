@@ -156,7 +156,7 @@ class Movies extends Component {
 
                                         </div>
                                     ))}
-                                    <BigButton text="Valider la selection" href="/recommendation"/>
+                                    <BigButton text="Valider la selection" href="#/recommendation"/>
                                 </div>
                             }/>
                         </div>
