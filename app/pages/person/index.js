@@ -1,9 +1,9 @@
 import {h, Component} from 'preact';
-
 import style from './style.css';
+
+
 import requests from "../../requests";
-import Menu from "../../components/menu";
-import BigButton from "../../components/buttons/bigButton";
+
 import DateFormat from "../../components/time/dateFormat";
 import ObjectLine from "../../components/objectLine";
 
@@ -86,10 +86,12 @@ class Person extends Component {
                                         <span class="text-gray job"> ({state.detail.known_for_department}) </span>
                                     </h1>
 
-                                    <div class="person-col-item">
-                                        <h5>Biographie</h5>
-                                        <p class="text-gray">{state.detail.biography}</p>
-                                    </div>
+                                    {state.detail.biography ?
+                                        <div class="person-col-item">
+                                            <h5>Biographie</h5>
+                                            <p class="text-gray">{state.detail.biography}</p>
+                                            <p class="text-right">- Source: TMDb</p>
+                                        </div> : ''}
 
                                     <div class="person-col-item">
                                         <h5>Filmographie</h5>
