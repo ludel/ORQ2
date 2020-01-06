@@ -96,7 +96,10 @@ class Movie extends Component {
                                 <div class="rate-menu">
                                     <RateMenu vote-average={state.detail.vote_average}
                                               vote-count={state.detail.vote_count}
-                                              title={state.detail.title}/>
+                                              title={state.detail.title}
+                                              original-title={state.detail.original_title}
+                                              imdb-id={state.detail.imdb_id}
+                                              id={state.detail.id}/>
                                 </div>
 
                                 <div class="category-menu">

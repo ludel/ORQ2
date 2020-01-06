@@ -39,9 +39,9 @@ class RateMenu extends Component {
                         <button class="btn btn-link m-0 tooltip" data-tooltip="The Movie DB">
                         <i class="fas fa-star fa-lg icon-star"/>
                         </button>
-                        <button class="btn btn-link m-0 text-light">
+                        <a class="btn btn-link m-0 text-light" href={`https://www.themoviedb.org/movie/${props.id}`} target="_blank">
                         {props['vote-average']} <span class="text-gray">/10</span>
-                        </button>
+                        </a>
                     </span>
                 </div>
 
@@ -49,27 +49,29 @@ class RateMenu extends Component {
                     <button class="btn btn-link m-0 tooltip" data-tooltip="Rotten Tomato">
                         <Image src="img/icon/rottentomato.png"/>
                     </button>
-                    <button class="btn btn-link m-0 text-light">
+                    <a class="btn btn-link m-0 text-light"
+                       href={`https://www.rottentomatoes.com/m/${props['original-title'].toLowerCase().replace(/ /g, '_')}`}
+                       target="_blank">
                         {state.tomato.value} <span class="text-gray">/100</span>
-                    </button>
+                    </a>
                 </div>
 
                 <div class="column col-3 vertical-line">
                     <button class="btn btn-link m-0 tooltip" data-tooltip="IMDB">
                         <Image src="img/icon/imdb.png"/>
                     </button>
-                    <button class="btn btn-link m-0 text-light">
+                    <a class="btn btn-link m-0 text-light" href={`https://www.imdb.com/title/${props['imdb-id']}`} target="_blank">
                         {state.imdb.value} <span class="text-gray">/10</span>
-                    </button>
+                    </a>
                 </div>
 
                 <div class="column col-3 vertical-line">
                     <button class="btn btn-link m-0 tooltip" data-tooltip="MetaCritic">
                         <Image src="img/icon/metacritic.png"/>
                     </button>
-                    <button class="btn btn-link m-0 text-light">
+                    <a class="btn btn-link m-0 text-light">
                         {state.metacritic.value} <span class="text-gray">/10</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         )
