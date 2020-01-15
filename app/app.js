@@ -39,12 +39,10 @@ class App extends Component {
         else
             selection[id] = title;
 
-        if (Object.keys(this.state.selection).length <= 10) {
-            this.setState({
-                selection: selection
-            });
-            localStorage.setItem('selection', JSON.stringify(selection))
-        }
+        this.setState({
+            selection: selection
+        });
+        localStorage.setItem('selection', JSON.stringify(selection))
     };
 
     headerCallBack = (menu, breadcrumb, bgType = constants.bgStyle.image) => {
