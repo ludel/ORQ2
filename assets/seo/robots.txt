@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /$
 Allow: /about/
+Allow: /critic/
 Allow: /sitemap.xml
 Sitemap: https://onregardequoi.net/sitemap.xml
 Disallow: /app
