@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>On Regarde Quoi - Critique de {{title}}</title>
+    <meta name="description" content="Critique du film {{title}}: {{body[3][0:105]}}..."/>
+
+    % include('template/base/head.html')
+</head>
+
+<body>
+<header class="bg-img-min">
+    % include('template/base/header.html')
+</header>
+
+<div class="banner-0 ">
+    <h1 class="text-center pb-2">
+        Critique de {{title}}
+    </h1>
+
+    <div class="container grid-lg">
+        <div class="">
+            <img src="{{image}}" class="img-responsive img-fit-cover" width="100%" alt="affiche film {{title}}">
+        </div>
+
+        <div class="divider pb-2"></div>
+
+        <h2>
+            {{meta}}
+        </h2>
+
+        % for paragraph in body:
+        <p>
+            {{paragraph}}
+        </p>
+        % end
+
+        <p class="text-right">- Source: TMDb</p>
+
+    </div>
+</div>
+
+
+<footer class="bg-img-min">
+    % include('template/base/footer.html')
+</footer>
+
+
+</body>
+</html>

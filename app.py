@@ -82,6 +82,24 @@ def static(path):
     return static_file(path, root='assets')
 
 
+# critics
+@get('/critic/<movie>')
+def critic(movie):
+    try:
+        with open(f'assets/critics/{movie}.txt', 'r') as file:
+            lines = file.readlines()
+    except IOError:
+        return about(404, 'Not found')
+
+    return template(
+        'template/static/critic.html',
+        title=lines[0].strip(),
+        meta=lines[1].strip(),
+        image=lines[2].strip(),
+        body=lines[3:]
+    )
+
+
 if DEBUG:
     run(host='localhost', port=8081, debug=True)
 else:
