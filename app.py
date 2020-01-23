@@ -83,7 +83,8 @@ def static(path):
 
 
 # critics
-@get('/critic/<movie>')
+@get('/critic/<movie>/')
+@get('/critic/<movie>', apply=slash_redirection)
 def critic(movie):
     try:
         with open(f'assets/critics/{movie}.txt', 'r') as file:
