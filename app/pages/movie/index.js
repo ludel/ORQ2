@@ -25,7 +25,7 @@ class Movie extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.props.matches.id !== prevProps.matches.id  || this.state.watchlist_ids !== prevState.watchlist_ids) {
+        if (this.props.matches.id !== prevProps.matches.id) {
             this.setState({loading: true});
             this.fetchMovie();
         }
@@ -35,8 +35,7 @@ class Movie extends Component {
         if (localStorage.hasOwnProperty('token'))
             requests.watchlist.get(localStorage.getItem('token'))
                 .then(res => this.setState({watchlist_ids: res.data.toString().split(',')}));
-        else
-            this.fetchMovie();
+        this.fetchMovie();
     }
 
     fetchMovie() {
@@ -62,8 +61,7 @@ class Movie extends Component {
     }
 
     getTextBtnWatchList(id) {
-        const ids = this.state.watchlist;
-        if (ids.includes(id.toString()))
+        if (this.state.watchlist_ids.includes(id.toString()))
             return <span><i class="icon icon-cross"/> Supprimer de la watchlist</span>;
         else {
             return <span><i class="icon icon-bookmark"/> Ajouter à la watchlist</span>;
@@ -71,11 +69,10 @@ class Movie extends Component {
     }
 
     updateWatchList(id) {
-        const ids = (this.state.watchlist|| '').split(',');
-        if (ids.includes(id.toString())) {
-            requests.watchlist.remove(id).then(res => this.setState({watchlist: res.data}));
+        if (this.state.watchlist_ids.includes(id.toString())) {
+            requests.watchlist.remove(id).then(res => this.setState({watchlist_ids: res.data.toString().split(',')}));
         } else {
-            requests.watchlist.add(id).then(res => this.setState({watchlist: res.data}));
+            requests.watchlist.add(id).then(res => this.setState({watchlist_ids: res.data.toString().split(',')}));
         }
     }
 
