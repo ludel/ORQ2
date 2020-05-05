@@ -34,7 +34,7 @@ class Movie extends Component {
     componentDidMount() {
         if (localStorage.hasOwnProperty('token'))
             requests.watchlist.get(localStorage.getItem('token'))
-                .then(res => this.setState({watchlist_ids: res.data.split(',')}));
+                .then(res => this.setState({watchlist_ids: res.data.toString().split(',')}));
         else
             this.fetchMovie();
     }
