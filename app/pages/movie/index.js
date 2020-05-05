@@ -62,7 +62,7 @@ class Movie extends Component {
     }
 
     getTextBtnWatchList(id) {
-        const ids = this.state.watchlist.split(',');
+        const ids = (this.state.watchlist|| '').split(',');
         if (ids.includes(id.toString()))
             return <span><i class="icon icon-cross"/> Supprimer de la watchlist</span>;
         else {
@@ -71,7 +71,7 @@ class Movie extends Component {
     }
 
     updateWatchList(id) {
-        const ids = this.state.watchlist.split(',');
+        const ids = (this.state.watchlist|| '').split(',');
         if (ids.includes(id.toString())) {
             requests.watchlist.remove(id).then(res => this.setState({watchlist: res.data}));
         } else {
