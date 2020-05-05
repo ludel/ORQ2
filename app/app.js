@@ -14,6 +14,7 @@ import Recommendation from "./pages/recommendation";
 import Footer from "./pages/footer";
 import Persons from "./pages/persons";
 import Person from "./pages/person";
+import Account from "./pages/account";
 
 const mountNode = document.getElementById('app');
 
@@ -62,6 +63,8 @@ class App extends Component {
 
                     <Persons path="/persons" setHeader={this.headerCallBack}/>
                     <Person path="/person/:id" setHeader={this.headerCallBack}/>
+
+                    <Account path="/account" setHeader={this.headerCallBack}/>
                 </Router>
             </div>
         );

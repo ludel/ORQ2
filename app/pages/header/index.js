@@ -15,7 +15,7 @@ class Header extends Component {
     }
 
     isAuth() {
-        return Boolean(localStorage.hasOwnProperty('auth'))
+        return Boolean(localStorage.hasOwnProperty('token'))
     }
 
     render(props, state) {
@@ -44,7 +44,7 @@ class Header extends Component {
                                     <li class="menu-item"><a href="#/movies">Films</a></li>
                                     <li class="menu-item"><a href="#/persons">Célébrités</a></li>
                                     <li class="menu-item"><a href="#/recommendation">Recommandations</a></li>
-                                    <li class="menu-item"><a href="#">Mon compte</a></li>
+                                    <li class="menu-item"><a href="#/account">Mon compte</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ class Header extends Component {
 
                     {this.isAuth() ?
                         <section className="navbar-section hide-lg text-bold">
-                            <BigRoundButton text="Mon compte" href="#"/>
+                            <BigRoundButton text="Mon compte" href="#/account"/>
                         </section> :
                         <section className="navbar-section hide-lg text-bold">
                             <a href="/sign-in" className="nav-title">Connexion</a>

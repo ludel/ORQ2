@@ -106,13 +106,10 @@
                     'Content-Type': 'application/json'
                 }
             }).then(response => {
-                response.text().then(function (text) {
-                    if (text === 'User created')
-                        document.getElementById('success').classList.remove('d-hide');
-                    else
-                        document.getElementById('error').classList.remove('d-hide');
-                });
-
+                if (response.status === 200)
+                    document.getElementById('success').classList.remove('d-hide');
+                else
+                    document.getElementById('error').classList.remove('d-hide');
             }).catch(error => {
                 console.error(error);
             });

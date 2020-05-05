@@ -17,11 +17,11 @@
 
 
 <div class="toast toast-success text-center d-hide" id="success">
-    Vous êtes bien connecté.
+    Vous êtes bien connecté. <a href="/app/#/account" class="btn-link">Mon compte</a>
 </div>
 
 <div class="toast toast-error text-center d-hide" id="error">
-    Erreur lors de la connection. Verifier que les informations saisies
+    Erreur lors de la connexion. Vérifier les informations saisies
 </div>
 
 
@@ -71,14 +71,17 @@
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            response.text().then(function (text) {
-                if (text === 'Bad username or password')
-                    document.getElementById('error').classList.remove('d-hide');
-                else {
-                    document.getElementById('success').classList.remove('d-hide');
-                    localStorage.setItem('auth', text);
-                }
-            });
+            if (response.status === 200) {
+                document.getElementById('success').classList.remove('d-hide');
+                response.text().then(function (text) {
+                    const auth = JSON.parse(text);
+                    localStorage.setItem('token', auth['token']);
+                    localStorage.setItem('watchlist', auth['watchlist']);
+                });
+            } else {
+                document.getElementById('error').classList.remove('d-hide');
+            }
+
         }).catch(error => {
             console.error(error);
         });

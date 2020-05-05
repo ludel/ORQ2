@@ -1,6 +1,5 @@
 import {h, Component} from 'preact';
 import requests from "../../requests";
-import style from './style.css';
 
 import constants from "../../constants";
 import BigButton from "../../components/buttons/bigButton";
@@ -8,10 +7,13 @@ import BigButton from "../../components/buttons/bigButton";
 import RateMenu from "./utils/scoreMenu";
 import CategoryMenu from "./utils/categoryMenu";
 
+import style from './style.css';
+
+
 class Movie extends Component {
     constructor() {
         super();
-        this.state = {loading: true, detail: {}, bgStyle: {}}
+        this.state = {loading: true, detail: {}, bgStyle: {}, watchlist: ''}
     }
 
     componentWillMount() {
@@ -22,15 +24,19 @@ class Movie extends Component {
         );
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.matches.id !== prevProps.matches.id) {
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.matches.id !== prevProps.matches.id  || this.state.watchlist_ids !== prevState.watchlist_ids) {
             this.setState({loading: true});
             this.fetchMovie();
         }
     }
 
     componentDidMount() {
-        this.fetchMovie()
+        if (localStorage.hasOwnProperty('token'))
+            requests.watchlist.get(localStorage.getItem('token'))
+                .then(res => this.setState({watchlist_ids: res.data.split(',')}));
+        else
+            this.fetchMovie();
     }
 
     fetchMovie() {
@@ -53,6 +59,24 @@ class Movie extends Component {
             });
 
         })
+    }
+
+    getTextBtnWatchList(id) {
+        const ids = this.state.watchlist.split(',');
+        if (ids.includes(id.toString()))
+            return <span><i class="icon icon-cross"/> Supprimer de la watchlist</span>;
+        else {
+            return <span><i class="icon icon-bookmark"/> Ajouter à la watchlist</span>;
+        }
+    }
+
+    updateWatchList(id) {
+        const ids = this.state.watchlist.split(',');
+        if (ids.includes(id.toString())) {
+            requests.watchlist.remove(id).then(res => this.setState({watchlist: res.data}));
+        } else {
+            requests.watchlist.add(id).then(res => this.setState({watchlist: res.data}));
+        }
     }
 
     getTextBtnSelection(id) {
@@ -81,8 +105,15 @@ class Movie extends Component {
                                 <img src={`https://image.tmdb.org/t/p/w342/${state.detail.poster_path}`}
                                      alt={state.detail.title}
                                      class="img-responsive p-centered"/>
+                                {Boolean(localStorage.hasOwnProperty('token')) ?
+                                    <BigButton text={this.getTextBtnWatchList(state.detail.id)}
+                                               onclick={() => this.updateWatchList(state.detail.id)}/> :
+                                    <BigButton text={this.getTextBtnWatchList(state.detail.id)}
+                                               onclick={() => this.updateWatchList(state.detail.id)}
+                                               class={"disabled tooltip"}
+                                               tip={"Connectez-vous pour avoir accès à la watchlist"}/>
+                                    }
 
-                                <BigButton text={<span><i class="icon icon-bookmark"/> Ajouter à la watchlist</span>}/>
                                 <BigButton
                                     onclick={() => props['update-selection'](state.detail.id, state.detail.title)}
                                     text={this.getTextBtnSelection(state.detail.id)}/>

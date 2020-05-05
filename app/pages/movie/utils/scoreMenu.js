@@ -10,16 +10,24 @@ class RateMenu extends Component {
 
     componentDidMount() {
         requests.scoring.movie(this.props.title).then(res => {
-            const scores = res.data['items'][0]['scoring'];
-            const tomato = this.getScore(scores, 'tomato:meter');
-            const imdb = this.getScore(scores, 'imdb:score');
-            const metacritic = this.getScore(scores, 'metacritic:score');
+            try {
+                const scores = res.data['items'][0]['scoring'];
+                const tomato = this.getScore(scores, 'tomato:meter');
+                const imdb = this.getScore(scores, 'imdb:score');
+                const metacritic = this.getScore(scores, 'metacritic:score');
 
-            this.setState({
-                tomato: tomato || {value: '-'},
-                imdb: imdb || {value: '-'},
-                metacritic: metacritic || {value: '-'}
-            });
+                this.setState({
+                    tomato: tomato || {value: '-'},
+                    imdb: imdb || {value: '-'},
+                    metacritic: metacritic || {value: '-'}
+                });
+            }catch (e) {
+                this.setState({
+                    tomato: {value: '-'},
+                    imdb: {value: '-'},
+                    metacritic: {value: '-'}
+                });
+            }
         })
     }
 
