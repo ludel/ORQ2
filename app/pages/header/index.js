@@ -61,7 +61,7 @@ class Header extends Component {
                         </section> :
                         <section className="navbar-section hide-lg text-bold">
                             <a href="/sign-in" className="nav-title">Connexion</a>
-                            <BigRoundButton text="Inscription" href="sign-up"/>
+                            <BigRoundButton text="Inscription" href="/sign-up"/>
                         </section>
                     }
 
