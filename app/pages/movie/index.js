@@ -13,7 +13,7 @@ import style from './style.css';
 class Movie extends Component {
     constructor() {
         super();
-        this.state = {loading: true, detail: {}, bgStyle: {}, watchlist: ''}
+        this.state = {loading: true, detail: {}, bgStyle: {}, watchlist_ids: ''}
     }
 
     componentWillMount() {
@@ -62,7 +62,7 @@ class Movie extends Component {
     }
 
     getTextBtnWatchList(id) {
-        const ids = (this.state.watchlist|| '').split(',');
+        const ids = this.state.watchlist;
         if (ids.includes(id.toString()))
             return <span><i class="icon icon-cross"/> Supprimer de la watchlist</span>;
         else {
