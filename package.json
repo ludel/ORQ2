@@ -10,7 +10,7 @@
     "start": "parcel app/index.html"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "history": "^4.10.1",
     "preact": "^8.5.3",
     "preact-router": "^2.6.1"
